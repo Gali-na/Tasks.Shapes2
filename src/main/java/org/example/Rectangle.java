@@ -53,7 +53,7 @@ public class Rectangle extends Shape {
     public void setTopD(Point topD) {
         if (topD != null && (topD.equals(this.topA) != true)
                 && (topD.equals(this.topB) != true)
-                && (topD.equals(this.topA) != true)) {
+                && (topD.equals(this.topC) != true)) {
             this.topD = topD;
         } else {
             System.out.println("Coordinates entered incorrectly, please try again");
