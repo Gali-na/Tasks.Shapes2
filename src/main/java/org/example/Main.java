@@ -3,7 +3,7 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         Point pointA = new Point(-3, 0);
-        Point pointB = new Point(0, 4);
+        Point pointB = new Point(0, 3);
         Point pointC = new Point(4, 0);
         Triangle triangle = new Triangle();
         triangle.setTopA(pointA);

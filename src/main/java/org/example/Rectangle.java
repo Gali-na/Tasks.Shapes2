@@ -11,15 +11,21 @@ public class Rectangle extends Shape {
     }
 
     public void setTopA(Point topA) {
-        this.topA = topA;
+        if (topA != null) {
+            this.topA = topA;
+        } else {
+            System.out.println("Coordinates entered incorrectly, please try again");
+        }
+
     }
 
     public Point getTopB() {
+
         return topB;
     }
 
     public void setTopB(Point topB) {
-        if (this.topA.getY() == topB.getY()) {
+        if ((this.topA.equals(topB) != true) && topB != null) {
             this.topB = topB;
         } else {
             System.out.println("Coordinates entered incorrectly, please try again");
@@ -27,11 +33,12 @@ public class Rectangle extends Shape {
     }
 
     public Point getTopC() {
+
         return topC;
     }
 
     public void setTopC(Point topC) {
-        if (this.topB.getX() == topC.getX()) {
+        if (topC != null && (topC.equals(this.topA) != true) && (topC.equals(this.topB) != true)) {
             this.topC = topC;
         } else {
             System.out.println("Coordinates entered incorrectly, please try again");
@@ -44,7 +51,9 @@ public class Rectangle extends Shape {
     }
 
     public void setTopD(Point topD) {
-        if (this.topC.getY() == topD.getY()) {
+        if (topD != null && (topD.equals(this.topA) != true)
+                && (topD.equals(this.topB) != true)
+                && (topD.equals(this.topA) != true)) {
             this.topD = topD;
         } else {
             System.out.println("Coordinates entered incorrectly, please try again");
