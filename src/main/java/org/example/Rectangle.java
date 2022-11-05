@@ -87,9 +87,9 @@ public class Rectangle extends Shape {
     @Override
     public String toString() {
         StringBuilder informatiom = new StringBuilder();
-        informatiom.append("Rectangle ").append("Perimetr =")
+        informatiom.append("Rectangle ").append(" Perimetr =")
                 .append(this.getPerimetr())
-                .append("Area = ").append(this.getArea());
+                .append(" Area = ").append(this.getArea());
         return informatiom.toString();
     }
 }

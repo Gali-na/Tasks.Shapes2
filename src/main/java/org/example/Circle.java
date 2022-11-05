@@ -1,8 +1,10 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Circle extends Shape {
-    private final double CONSTANT_PI = 3.14;
-    Point radiusPoint;
+    private final double pi = 3.14;
+    private Point radiusPoint;
     private Point center;
 
     public void setCenter(Point center) {
@@ -10,25 +12,29 @@ public class Circle extends Shape {
     }
 
     public void setRadiusPoint(Point radiusPoint) {
-        if ((radiusPoint != this.center) &&
-                (center.getY() != radiusPoint.getY())
-                && (center.getX() != radiusPoint.getX()))
+        if (!(radiusPoint.equals(this.center))) {
             this.radiusPoint = radiusPoint;
+        }
     }
 
     private double radius() {
-        return Math.sqrt(Math.pow(radiusPoint.getX() - center.getX(), 2) +
-                Math.pow(radiusPoint.getY() - center.getY(), 2));
+        double rezult = 0.0;
+        if (!radiusPoint.equals(center)) {
+            rezult = Math.sqrt(Math.pow(radiusPoint.getX() - center.getX(), 2)
+                    + Math.pow(radiusPoint.getY() - center.getY(), 2));
+        }
+
+        return rezult;
     }
 
     @Override
     double getPerimetr() {
-        return 2 * CONSTANT_PI * radius();
+        return 2 * pi * radius();
     }
 
     @Override
     double getArea() {
-        return CONSTANT_PI * Math.pow(radius(), 2);
+        return pi * Math.pow(radius(), 2);
     }
 
     @Override
@@ -36,7 +42,24 @@ public class Circle extends Shape {
         StringBuilder information = new StringBuilder();
         information.append("Circle ").append("Perimetr = ")
                 .append(this.getPerimetr())
-                .append("Area = ").append(this.getArea());
+                .append(" Area = ").append(this.getArea());
         return information.toString();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Circle circle = (Circle) o;
+        return Double.compare(circle.pi, pi) == 0
+                && radiusPoint.equals(circle.radiusPoint)
+                && center.equals(circle.center);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pi, radiusPoint, center);
+    }
+
+
 }

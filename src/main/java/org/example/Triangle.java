@@ -5,27 +5,36 @@ public class Triangle extends Shape {
     private Point topB;
     private Point topC;
 
+    public Triangle() {
+    }
+
     public Point getTopA() {
+
         return topA;
     }
 
     public void setTopA(Point topA) {
+
         this.topA = topA;
     }
 
     public Point getTopB() {
+
         return topB;
     }
 
     public void setTopB(Point topB) {
+
         this.topB = topB;
     }
 
     public Point getTopC() {
+
         return topC;
     }
 
     public void setTopC(Point topC) {
+
         this.topC = topC;
     }
 
@@ -59,12 +68,11 @@ public class Triangle extends Shape {
                 (semiPerimeter() - sideAB()) * (semiPerimeter() - sideBC())));
     }
 
-
     @Override
     public String toString() {
         StringBuilder information = new StringBuilder();
         information.append("Triangle ").append("Perimetr = ")
-                .append(this.getPerimetr()).append("Area = ").append(this.getArea());
+                .append(this.getPerimetr()).append(" Area = ").append(this.getArea());
         return information.toString();
     }
 }
