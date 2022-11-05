@@ -30,4 +30,13 @@ public class Circle extends Shape {
     double getArea() {
         return CONSTANT_PI * Math.pow(radius(), 2);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder information = new StringBuilder();
+        information.append("Circle ").append("Perimetr = ")
+                .append(this.getPerimetr())
+                .append("Area = ").append(this.getArea());
+        return information.toString();
+    }
 }

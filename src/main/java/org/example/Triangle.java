@@ -58,4 +58,13 @@ public class Triangle extends Shape {
         return Math.sqrt(semiPerimeter() * ((semiPerimeter() - sideAC()) *
                 (semiPerimeter() - sideAB()) * (semiPerimeter() - sideBC())));
     }
+
+
+    @Override
+    public String toString() {
+        StringBuilder information = new StringBuilder();
+        information.append("Triangle ").append("Perimetr = ")
+                .append(this.getPerimetr()).append("Area = ").append(this.getArea());
+        return information.toString();
+    }
 }

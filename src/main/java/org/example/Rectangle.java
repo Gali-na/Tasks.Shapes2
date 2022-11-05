@@ -52,35 +52,44 @@ public class Rectangle extends Shape {
     }
 
     private double sideAB() {
-       return  Math.sqrt( Math.pow((topB.getX()-topA.getX()),2)
-               +Math.pow((topB.getY()-topA.getY()),2));
+        return Math.sqrt(Math.pow((topB.getX() - topA.getX()), 2)
+                + Math.pow((topB.getY() - topA.getY()), 2));
     }
 
-    private  double sideBC() {
-        return Math.sqrt(Math.pow(topC.getX()-topB.getX(),2)
-                        + (Math.pow((topC.getY()-topB.getY()),2)));
+    private double sideBC() {
+        return Math.sqrt(Math.pow(topC.getX() - topB.getX(), 2)
+                + (Math.pow((topC.getY() - topB.getY()), 2)));
     }
 
     private double sideCD() {
-        return  Math.sqrt(
-                (Math.pow(topD.getX()-topC.getX(),2))
-                        +(Math.pow((topD.getY()-topC.getY()),2)));
+        return Math.sqrt(
+                (Math.pow(topD.getX() - topC.getX(), 2))
+                        + (Math.pow((topD.getY() - topC.getY()), 2)));
     }
 
     private double sideCA() {
-        return  Math.sqrt(
-                Math.pow((topC.getX()-topA.getX()),2)+
-                        Math.pow((topC.getY()- topA.getY()),2));
+        return Math.sqrt(
+                Math.pow((topC.getX() - topA.getX()), 2) +
+                        Math.pow((topC.getY() - topA.getY()), 2));
     }
 
 
     @Override
     double getPerimetr() {
-        return sideAB()+sideBC()+sideCD()+sideCA();
+        return sideAB() + sideBC() + sideCD() + sideCA();
     }
 
     @Override
     double getArea() {
-        return sideAB()*sideBC();
+        return sideAB() * sideBC();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder informatiom = new StringBuilder();
+        informatiom.append("Rectangle ").append("Perimetr =")
+                .append(this.getPerimetr())
+                .append("Area = ").append(this.getArea());
+        return informatiom.toString();
     }
 }
