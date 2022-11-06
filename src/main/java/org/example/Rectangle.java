@@ -76,16 +76,16 @@ public class Rectangle extends Shape {
                         + (Math.pow((topD.getY() - topC.getY()), 2)));
     }
 
-    private double sideCA() {
+    private double sideDA() {
         return Math.sqrt(
-                Math.pow((topC.getX() - topA.getX()), 2) +
-                        Math.pow((topC.getY() - topA.getY()), 2));
+                Math.pow((topD.getX() - topA.getX()), 2) +
+                        Math.pow((topD.getY() - topA.getY()), 2));
     }
 
 
     @Override
     double getPerimetr() {
-        return sideAB() + sideBC() + sideCD() + sideCA();
+        return sideAB() + sideBC() + sideCD() + sideDA();
     }
 
     @Override

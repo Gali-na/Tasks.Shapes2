@@ -8,12 +8,23 @@ public class Circle extends Shape {
     private Point center;
 
     public void setCenter(Point center) {
+
         this.center = center;
+    }
+    public Point getRadiusPoint() {
+        return radiusPoint;
+    }
+
+    public Point getCenter() {
+        return center;
     }
 
     public void setRadiusPoint(Point radiusPoint) {
         if (!(radiusPoint.equals(this.center))) {
             this.radiusPoint = radiusPoint;
+        }else {
+            System.out.println("The coordinates of the radius are not " +
+                    "transferred correctly, they coincide with the center of the circle");
         }
     }
 

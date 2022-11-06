@@ -15,10 +15,6 @@ class RectangleTest {
     @BeforeEach
     void beforeEach() {
         rectangle = new Rectangle();
-      /*  Point topA = new Point();
-        Point topB = new Point();
-        Point topC= new Point();
-        Point topD = new Point();*/
     }
 
     @Test
@@ -126,18 +122,18 @@ class RectangleTest {
     void getTopC() {
         Point topA = new Point(-4, 4);
         Point topB = new Point(4, 4);
-        Point topC= new Point(4,3);
+        Point topC = new Point(4, 3);
         rectangle.setTopA(topA);
         rectangle.setTopB(topB);
         rectangle.setTopC(topC);
-        assertEquals(topC,rectangle.getTopC());
+        assertEquals(topC, rectangle.getTopC());
     }
 
     @Test
     void setTopC_ArgumentIsNull_GetMessages() {
         Point topA = new Point(-4, 4);
         Point topB = new Point(4, 4);
-        Point topC= null;
+        Point topC = null;
         rectangle.setTopA(topA);
         rectangle.setTopB(topB);
         String cousoleOutputStream = "";
@@ -162,7 +158,7 @@ class RectangleTest {
     void setTopC_AargumentIsTheSameOtherPeaks_GetMessages() {
         Point topA = new Point(-4, 4);
         Point topB = new Point(4, 4);
-        Point topC= new Point(4,4);
+        Point topC = new Point(4, 4);
         rectangle.setTopA(topA);
         rectangle.setTopB(topB);
         String cousoleOutputStream = "";
@@ -182,11 +178,12 @@ class RectangleTest {
         }
         assertEquals(result, cousoleOutputStream);
     }
+
     @Test
     void setTopC_AargumentIsNotNullThePeakIsDifferentFromOtherPeaks_GetMessages() {
         Point topA = new Point(-4, 4);
         Point topB = new Point(4, 4);
-        Point topC= new Point(4,4);
+        Point topC = new Point(4, 4);
         rectangle.setTopA(topA);
         rectangle.setTopB(topB);
         rectangle.setTopC(topC);
@@ -198,8 +195,8 @@ class RectangleTest {
     void getTopD() {
         Point topA = new Point(-4, 4);
         Point topB = new Point(4, 4);
-        Point topC= new Point(4,-4);
-        Point topD = new Point(-4,-4);
+        Point topC = new Point(4, -4);
+        Point topD = new Point(-4, -4);
         rectangle.setTopA(topA);
         rectangle.setTopB(topB);
         rectangle.setTopC(topC);
@@ -211,19 +208,20 @@ class RectangleTest {
     void setTopD_AargumentIsNotNullThePeakIsDifferentFromOtherPeaks_GetMessages() {
         Point topA = new Point(-4, 4);
         Point topB = new Point(4, 4);
-        Point topC= new Point(4,-4);
-        Point topD = new Point(-4,-4);
+        Point topC = new Point(4, -4);
+        Point topD = new Point(-4, -4);
         rectangle.setTopA(topA);
         rectangle.setTopB(topB);
         rectangle.setTopC(topC);
         rectangle.setTopD(topD);
         assertEquals(topD, rectangle.getTopD());
     }
+
     @Test
     void setTopD_ArgumentIsNull_GetMessages() {
         Point topA = new Point(-4, 4);
         Point topB = new Point(4, 4);
-        Point topC= new Point(4,-4);
+        Point topC = new Point(4, -4);
         Point topD = null;
         rectangle.setTopA(topA);
         rectangle.setTopB(topB);
@@ -251,8 +249,9 @@ class RectangleTest {
     void setTopD_AargumentIsTheSameOtherPeaks_GetMessages() {
         Point topA = new Point(-4, 4);
         Point topB = new Point(4, 4);
-        Point topC= new Point(4,-4);
-        Point topD = new Point(4,-4);;
+        Point topC = new Point(4, -4);
+        Point topD = new Point(4, -4);
+        ;
         rectangle.setTopA(topA);
         rectangle.setTopB(topB);
         rectangle.setTopC(topC);
@@ -275,14 +274,43 @@ class RectangleTest {
         assertEquals(result, cousoleOutputStream);
     }
 
-
-
     @Test
     void getPerimetr() {
-
+        Point topA = new Point(-4, 4);
+        Point topB = new Point(4, 4);
+        Point topC = new Point(4, -4);
+        Point topD = new Point(-4, -4);
+        rectangle.setTopA(topA);
+        rectangle.setTopB(topB);
+        rectangle.setTopC(topC);
+        rectangle.setTopD(topD);
+        double sideAB = Math.sqrt(Math.pow((topB.getX() - topA.getX()), 2)
+                + Math.pow((topB.getY() - topA.getY()), 2));
+        double sideBC = Math.sqrt(Math.pow(topC.getX() - topB.getX(), 2)
+                + (Math.pow((topC.getY() - topB.getY()), 2)));
+        double sideCD = Math.sqrt(
+                (Math.pow(topD.getX() - topC.getX(), 2))
+                        + (Math.pow((topD.getY() - topC.getY()), 2)));
+        double sideDA = Math.sqrt(
+                Math.pow((topD.getX() - topA.getX()), 2) +
+                        Math.pow((topD.getY() - topA.getY()), 2));
+        double perimetr = sideAB + sideBC + sideCD + sideDA;
+        assertEquals((int) perimetr, (int) rectangle.getPerimetr());
     }
 
     @Test
     void getArea() {
+        Point topA = new Point(-4, 4);
+        Point topB = new Point(4, 4);
+        Point topC = new Point(4, -4);
+        rectangle.setTopA(topA);
+        rectangle.setTopB(topB);
+        rectangle.setTopC(topC);
+        double sideAB = Math.sqrt(Math.pow((topB.getX() - topA.getX()), 2)
+                + Math.pow((topB.getY() - topA.getY()), 2));
+        double sideBC = Math.sqrt(Math.pow(topC.getX() - topB.getX(), 2)
+                + (Math.pow((topC.getY() - topB.getY()), 2)));
+        double area = sideAB * sideBC;
+        assertEquals(area, rectangle.getArea());
     }
 }

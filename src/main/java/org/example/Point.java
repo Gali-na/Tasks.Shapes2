@@ -3,23 +3,38 @@ package org.example;
 import java.util.Objects;
 
 public class Point {
-    private double x ;
-    private double y ;
+    double max = Double.MAX_VALUE;
+    double min = Double.MIN_VALUE;
+    private double x;
+    private double y;
 
     public Point() {
     }
 
-    public Point(double x, double y) {
-        this.x = x;
-        this.y = y;
+     public Point(double x, double y) {
+        if((x>=min && x<=max) && (y>=min && y<=max)) {
+            this.x = x;
+            this.y = y;
+        } else {
+            System.out.println("Data sent incorrectly, please try again");
+        }
     }
 
     public void setX(double x) {
-        this.x = x;
+        if (x < max && x > min) {
+            this.x = x;
+        } else {
+            System.out.println("Data sent incorrectly, please try again");
+        }
     }
 
     public void setY(double y) {
-        this.y = y;
+        if (y < max && y > min) {
+            this.y=y;
+        }else {
+            System.out.println("Data sent incorrectly, please try again");
+        }
+
     }
 
     public double getX() {

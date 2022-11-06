@@ -9,6 +9,14 @@ public class Board {
         this.shapes = new Shape[4];
     }
 
+    public Shape[] getShapes() {
+        return shapes;
+    }
+
+    public void setShapes(Shape[] shapes) {
+        this.shapes = shapes;
+    }
+
     public void addShpape(Shape shape) {
         for (int i = 0; i < this.shapes.length; i++) {
             if (shapes[i] == null) {
@@ -69,6 +77,4 @@ public class Board {
         }
         return information.toString();
     }
-
-
 }
